@@ -6,7 +6,7 @@ This project assumes that director is successfully deployed and introspection ha
 
 ## Repo Inventory:
 
-** deploy.sh ** - Shell script used to deploy overcloud.
+**deploy.sh** - Shell script used to deploy overcloud.
 
 ### bond-vlans - Environment and templates for OpenStack network isolation using bonds and vlans.
 >      /switch_configs
@@ -18,7 +18,7 @@ This project assumes that director is successfully deployed and introspection ha
 >                      - compute.yaml - Compute node template file. NIC3 is on the controlplane for provisioning. NIC1 and NIC2 are bonded and trunked for network isolation. 
 >                      - controller.yaml - Control node template file. NIC3 is on the controlplane for provisioning. NIC1 and NIC2 are bonded and trunked for network isolation.
 
-** network-environment.yaml ** - Environment file used to define network/vlan for Overcloud deployment.
+**network-environment.yaml** - Environment file used to define network/vlan for Overcloud deployment.
 
 
 ### single-nic-vlans - Environment and templates for OpenStack network isolation using a trunked interface with VLANs and an interface for provisioning.
@@ -30,6 +30,6 @@ This project assumes that director is successfully deployed and introspection ha
                       - compute.yaml - Compute node template file. NIC3 is on the controlplane for provisioning. NIC 1 is trunked and used for network isolation.
                       - control.yaml - Control node template file. NIC3 is on the controlplane for provisioning. NIC 1 is trunked and used for network isolation.
 
-** network-environment.yaml ** - Environment file used to define network/vlan for Overcloud deployment. BondingInterfaceOvsOptions variable is commented out.
+**network-environment.yaml** - Environment file used to define network/vlan for Overcloud deployment. BondingInterfaceOvsOptions variable is commented out.
 
 ### undercloud - Contains a complete undercloud.conf

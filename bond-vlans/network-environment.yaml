@@ -1,0 +1,48 @@
+#This file is an example of an environment file for defining the isolated
+#networks and related parameters.
+resource_registry:
+  OS::TripleO::Compute::Net::SoftwareConfig:
+    /home/stack/templates/nic-configs/compute.yaml
+  OS::TripleO::Controller::Net::SoftwareConfig:
+    /home/stack/templates/nic-configs/controller.yaml
+
+parameter_defaults:
+  # This section is where deployment-specific configuration is done
+  # CIDR subnet mask length for provisioning network
+  ControlPlaneSubnetCidr: '24'
+  # Gateway router for the provisioning network (or Undercloud IP)
+  ControlPlaneDefaultRoute: 172.16.0.254
+  EC2MetadataIp: 172.16.0.251  # Generally the IP of the Undercloud
+
+
+  # Customize the IP subnets to match the local environment
+  InternalApiNetCidr: 192.168.110.0/24
+  InternalApiNetworkVlanID: 710
+  InternalApiAllocationPools: [{'start': '192.168.110.10', 'end': '192.168.110.200'}]
+
+  TenantNetCidr: 192.168.120.0/24
+  TenantNetworkVlanID: 720
+  TenantAllocationPools: [{'start': '192.168.120.10', 'end': '192.168.120.200'}]
+
+  StorageNetCidr: 192.168.130.0/24
+  StorageNetworkVlanID: 730
+  StorageAllocationPools: [{'start': '192.168.130.10', 'end': '192.168.130.200'}]
+
+  StorageMgmtNetCidr: 192.168.140.0/24
+  StorageMgmtNetworkVlanID: 740
+  StorageMgmtAllocationPools: [{'start': '192.168.140.10', 'end': '192.168.140.200'}]
+
+  ExternalNetCidr: 192.168.150.0/24
+  ExternalNetworkVlanID: 750
+  ExternalAllocationPools: [{'start': '192.168.150.10', 'end': '192.168.150.200'}]
+
+  # Gateway router for the external network
+  ExternalInterfaceDefaultRoute: 192.168.150.254
+  DnsServers: ["10.1.1.253","192.168.1.254"]
+  # Set to empty string to enable multiple external networks or VLANs
+  NeutronExternalNetworkBridge: "''"
+  # The tunnel type for the tenant network (vxlan or gre). Set to '' to disable tunneling.
+  NeutronTunnelTypes: 'vxlan'
+  NeutronNetworkType: 'vxlan,vlan'
+  # Customize bonding options, e.g. "mode=4 lacp_rate=1 updelay=1000 miimon=100"
+  BondInterfaceOvsOptions: "mode=4 miimon=100"

@@ -1,0 +1,12 @@
+VLAN ID - Purpose                  - Network Info 
+-------------------------------------------------------
+1       - Native VLAN              - N/A
+99      - Public/Floating IP (ATT) - 192.168.1.0/24 
+172     - Provisioning VLAN        - 172.16.0.0/24
+192     - Public / Floating IP     - 192.168.0.0/24
+200     - Shared Public/(IPMI)     - 10.1.1.0/24
+710     - Internal API OSP         - 192.168.110.0/24
+720     - Tenant Network OSP       - 192.168.120.0/24
+730     - Storage Network OSP      - 192.168.130.0/24
+740     - Storage Mgmt OSP         - 192.168.140.0/24
+750     - External (Public) API    - 192.168.150.0/24

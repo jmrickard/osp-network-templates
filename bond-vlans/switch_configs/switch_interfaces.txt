@@ -1,6 +1,5 @@
 interface GigabitEthernet1/0/1
  switchport trunk encapsulation dot1q
- switchport trunk native vlan 172
  switchport trunk allowed vlan 1,99,172,192,200,710,720,730,740,750
  switchport mode trunk
  speed 1000
@@ -12,7 +11,6 @@ interface GigabitEthernet1/0/1
 
 interface GigabitEthernet1/0/10
  switchport trunk encapsulation dot1q
- switchport trunk native vlan 172
  switchport trunk allowed vlan 1,99,172,192,200,710,720,730,740,750
  switchport mode trunk
  speed 1000
